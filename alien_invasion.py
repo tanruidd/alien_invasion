@@ -23,6 +23,7 @@ def run_game():
 
         # event
         gf.check_events(ship)
+        ship.update()
         gf.update_screen(ai_settings, screen, ship)
 
         # view
