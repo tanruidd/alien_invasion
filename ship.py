@@ -15,6 +15,6 @@ class Ship():
         self.rect.centerx = self.screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
 
-def blitme(self):
-    """Draw"""
-    self.screen.blit(self.image, self.rect)
+    def blitme(self):
+        """Draw"""
+        self.screen.blit(self.image, self.rect)

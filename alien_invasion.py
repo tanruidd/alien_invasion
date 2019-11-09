@@ -2,6 +2,7 @@ import sys
 import pygame
 
 from settings import Settings
+from ship import Ship
 
 def run_game():
     # init
@@ -14,6 +15,9 @@ def run_game():
     # set backgroud color
     bg_color = (230, 230, 230)
 
+    # create a ship
+    ship = Ship(screen)
+
     # start
     while True:
 
@@ -23,6 +27,8 @@ def run_game():
                 sys.exit()
 
         screen.fill(ai_settings.bg_color)
+        ship.blitme()
+
         # view
         pygame.display.flip()
 
