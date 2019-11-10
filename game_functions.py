@@ -50,3 +50,11 @@ def update_screen(ai_setttings, screen, ship, bullets):
     
     # view
     pygame.display.flip()
+
+def update_bullets(bullets):
+    """update bullets and delete bullets"""
+    bullets.update()
+
+    for bullet in bullets.copy():
+        if bullet.rect.bottom <= 0:
+            bullets.remove(bullet)
