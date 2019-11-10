@@ -24,7 +24,9 @@ def run_game():
     bullets = Group()
 
     # create a Alien
-    alien = Alien(ai_settings, screen)
+    aliens = Group()
+
+    gf.create_fleet(ai_settings, screen, aliens)
 
     # start
     while True:
@@ -36,7 +38,7 @@ def run_game():
         #update bullets
         gf.update_bullets(bullets)
 
-        gf.update_screen(ai_settings, screen, ship, alien, bullets)
+        gf.update_screen(ai_settings, screen, ship, aliens, bullets)
 
         # view
         pygame.display.flip()
