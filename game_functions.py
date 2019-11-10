@@ -44,13 +44,14 @@ def check_events(ai_settings, screen, ship, bullets):
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
 
-def update_screen(ai_setttings, screen, ship, bullets):
+def update_screen(ai_setttings, screen, ship, alien, bullets):
     """update image and switch"""
     #
     screen.fill(ai_setttings.bg_color)
     for bullet in bullets.sprites():
         bullet.draw_bullet()
     ship.blitme()
+    alien.blitme()
     
     # view
     pygame.display.flip()
