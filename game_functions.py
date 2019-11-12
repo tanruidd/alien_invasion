@@ -4,17 +4,24 @@ import pygame
 from bullet import Bullet
 from alien import Alien
 
-def create_fleet(ai_settings, screen, aliens):
+def get_number_alien_x(ai_settings, alien_width):
+    availabel_space_x = ai_settings.screen_width - 2 * alien_width
+    number_aliens_x = int(availabel_space_x / (2 * alien_width))
+    return number_aliens_x
+
+def create_alien(ai_settings, screen, aliens, alien_numer):
     alien = Alien(ai_settings, screen)
     alien_width = alien.rect.width
-    availabel_space_x = ai_settings.screen_width
-    number_aliens_x = int(availabel_space_x / (2 * alien_width))
+    alien.x = alien_width + 2 * alien_width * alien_numer
+    alien.rect.x = alien.x
+    aliens.add(alien)
+
+def create_fleet(ai_settings, screen, aliens):
+    alien = Alien(ai_settings, screen)
+    number_aliens_x = get_number_alien_x(ai_settings, alien.rect.width)
 
     for alien_numer in range(number_aliens_x):
-        alien = Alien(ai_settings, screen)
-        alien.x = alien_width + 2 * alien_width * alien_numer
-        alien.rect.x = alien.x
-        aliens.add(alien)
+        create_alien(ai_settings, screen, aliens, alien_numer)
 
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
     if event.key == pygame.K_RIGHT:
